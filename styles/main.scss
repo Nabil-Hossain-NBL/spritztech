@@ -334,15 +334,77 @@ body {
         grid-template-columns: repeat(3, 1fr); // 3 cards in a row
         gap: 30px; // space between cards
         margin-top: 40px;
-       
+
         &-card {
-            background: #54bd95;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+          // background: #54bd95;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
         }
-       
+        &-card-text {
+          > h5 {
+            color: #191a15;
+            font-family: Inter;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 30px;
+          }
+          > p {
+            color: $secondary-color;
+            font-size: 1.125rem;
+            font-weight: 500;
+            line-height: 1.875rem;
+          }
+        }
+
+        @include tablet() {
+          grid-template-columns: repeat(2, 1fr); // 2 cards in a row on tablet
+        }
+        @include mobile() {
+          grid-template-columns: repeat(1, 1fr); // 1 card in a row on mobile
+        }
+      }
+    }
+  }
+
+  .benifit-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    align-items: center;
+    gap: 3rem;
+
+    &-left {
+      h2 {
+        font-size: 3.125rem;
+        font-weight: 700;
+        line-height: normal;
+      }
+      &-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 1rem;
+      }
+    }
+
+    &-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 526px;
+        object-fit: cover;
+
+        @include mobile() {
+          height: auto;
+          max-width: 100%;
+        }
       }
     }
   }
