@@ -26,6 +26,7 @@ body {
   h5,
   h6 {
     margin: 0;
+    color: #191a15;
   }
   p {
     font-size: 1.125rem;
@@ -405,6 +406,201 @@ body {
           height: auto;
           max-width: 100%;
         }
+      }
+    }
+  }
+
+  .plan-container {
+    text-align: center;
+    &-top {
+      text-align: center;
+      h2 {
+        font-size: 3.125rem;
+        font-weight: 700;
+        line-height: 4rem;
+      }
+      p {
+        color: $secondary-color;
+        font-size: 1.125rem;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+    &-middle {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      border-radius: 0.625rem;
+      background: #fff;
+      box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.05);
+      width: auto;
+      padding: 0.4rem;
+
+      .bil-monthly {
+        padding: 0.8rem 2rem;
+        border-radius: 0.6rem;
+        cursor: pointer;
+      }
+      .bil-yearly {
+        background: $primary-color;
+        color: #fff;
+        padding: 0.8rem 2rem;
+        border-radius: 0.6rem;
+        cursor: pointer;
+      }
+    }
+    &-bottom {
+      display: flex;
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .plan-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.05);
+        flex: 1;
+        max-width: 23rem;
+        position: relative;
+        border: 2px solid transparent;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+          transform: scale(1.03);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-title {
+          font-size: 1.5rem;
+          font-weight: 600;
+          margin: 0 0 0.5rem 0;
+          text-align: center;
+        }
+
+        .plan-description {
+          font-size: 0.875rem;
+          color: #6b7280;
+          text-align: center;
+          margin: 0 0 1.5rem 0;
+          line-height: 1.4;
+        }
+
+        .price {
+          text-align: center;
+          margin-bottom: 1rem;
+
+          .currency {
+            font-size: 1.25rem;
+            font-weight: 500;
+            vertical-align: top;
+          }
+
+          .amount {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+          }
+        }
+
+        .savings {
+          border-radius: 0.625rem;
+          background: #85dab9;
+          text-align: center;
+          font-size: 0.75rem;
+          padding: 0.3rem 0.6rem;
+          display: inline-flex;
+          color: #fff;
+        }
+
+        .cta-button {
+          width: 100%;
+          padding: 1rem 0;
+          border-radius: 0.5rem;
+          font-weight: 600;
+          font-size: 1rem;
+          font-style: normal;
+          border: none;
+          cursor: pointer;
+          color: $primary-color;
+          background: #fff;
+        }
+
+        .features {
+          list-style: none;
+          padding: 1.5rem 2rem;
+          margin: 0 0 2rem 0;
+          background: #f9fafb;
+          border-radius: 0.625rem;
+
+          .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+            line-height: 1.4;
+
+            .checkmark {
+              width: 1.25rem;
+              height: 1.25rem;
+            }
+          }
+        }
+      }
+      .plan-card.featured {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1rem;
+        transform: scale(1.05);
+        z-index: 0; // base card
+
+        &:hover {
+          transform: scale(1.07);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-title,
+        .plan-description,
+        .price,
+        .cta-button {
+          color: #fff;
+        }
+
+        .cta-button.primary {
+          background: $primary-color;
+          color: #fff;
+          border-radius: 1.25rem;
+        }
+      }
+
+      .plan-card.featured::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80%; // top half
+        background: #54bd95;
+
+        z-index: -1; // behind content
+      }
+
+      .plan-card.featured::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 69%; // bottom half
+        background: #6bc2a1;
+        z-index: -1; // behind content
+        border-radius: 50%;
+        transform: scale(1.4);
       }
     }
   }
