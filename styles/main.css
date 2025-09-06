@@ -271,7 +271,16 @@ body .feature-section .feature-container .feature-top div {
 body .feature-section .feature-container .feature-top div:hover {
   background: #79cbac;
 }
-body .feature-section .feature-container .feature-top .feature-bottom {
+body .feature-section .feature-container .feature-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+body .feature-section .feature-container .feature-bottom-card {
+  background: #54bd95;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }/*# sourceMappingURL=main.css.map */
