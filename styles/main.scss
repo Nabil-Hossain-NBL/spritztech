@@ -1301,6 +1301,7 @@ body {
         }
 
         @include mobile {
+          text-align: center;
           flex-direction: column;
           gap: 1rem;
         }

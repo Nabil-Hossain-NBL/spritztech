@@ -1241,6 +1241,7 @@ body .footer-section .footer-container .footer-bottom {
 }
 @media (max-width: 768px) {
   body .footer-section .footer-container .footer-bottom {
+    text-align: center;
     flex-direction: column;
     gap: 1rem;
   }
