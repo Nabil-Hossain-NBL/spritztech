@@ -1,7 +1,12 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: "Inter";
+  overflow-x: hidden;
 }
 body h1,
 body h2,
@@ -22,6 +27,17 @@ body .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+  overflow: hidden;
+}
+body .glow-circle {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(84, 189, 149, 0.4) 0%, rgba(84, 189, 149, 0) 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: -1;
 }
 body .navar {
   display: flex;
@@ -785,6 +801,7 @@ body .benifit-container-right img {
 }
 body .plan-container {
   text-align: center;
+  padding: 8rem 0;
 }
 body .plan-container-top {
   text-align: center;
@@ -799,6 +816,7 @@ body .plan-container-top p {
   font-size: 1.125rem;
   font-weight: 700;
   line-height: normal;
+  margin: 2.5rem 0;
 }
 body .plan-container-middle {
   display: inline-flex;
@@ -810,6 +828,7 @@ body .plan-container-middle {
   box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.05);
   width: auto;
   padding: 0.4rem;
+  margin-bottom: 4rem;
 }
 body .plan-container-middle .bil-monthly {
   padding: 0.8rem 2rem;
@@ -825,12 +844,26 @@ body .plan-container-middle .bil-yearly {
 }
 body .plan-container-bottom {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
+}
+@media (max-width: 992px) {
+  body .plan-container-bottom {
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  body .plan-container-bottom {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
 }
 body .plan-container-bottom .plan-card {
   background: white;
@@ -882,6 +915,7 @@ body .plan-container-bottom .plan-card .savings {
   padding: 0.3rem 0.6rem;
   display: inline-flex;
   color: #fff;
+  margin-bottom: 1rem;
 }
 body .plan-container-bottom .plan-card .cta-button {
   width: 100%;
@@ -935,6 +969,9 @@ body .plan-container-bottom .plan-card.featured .cta-button.primary {
   background: #54bd95;
   color: #fff;
   border-radius: 1.25rem;
+}
+body .plan-container-bottom .plan-card.featured .cta-button.primary:hover {
+  background: #79cbac;
 }
 body .plan-container-bottom .plan-card.featured::before {
   content: "";

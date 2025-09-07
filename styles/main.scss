@@ -15,10 +15,16 @@ $secondary-color: #a6a6a6;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 body {
   margin: 0;
   padding: 0;
   font-family: "Inter";
+  overflow-x: hidden;
   h1,
   h2,
   h3,
@@ -38,6 +44,22 @@ body {
     max-width: 1200px; // maximum width of content
     margin: 0 auto; // center horizontally
     padding: 0 15px; // some padding on small screens
+    overflow: hidden;
+  }
+
+  .glow-circle {
+    position: absolute;
+    width: 800px; // size of glow
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(84, 189, 149, 0.4) 0%,
+      rgba(84, 189, 149, 0) 70%
+    );
+    filter: blur(80px); // smooth fading
+    pointer-events: none; // prevent blocking clicks
+    z-index: -1; // stays behind content
   }
 
   .navar {
@@ -724,7 +746,7 @@ body {
     width: 100%;
     align-items: center;
     gap: 3rem;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 
     @include tablet() {
       grid-template-columns: 1fr; // stack on tablet
@@ -764,34 +786,33 @@ body {
           gap: 1rem;
           font-size: 1.125rem;
           font-weight: 500;
-  
+
           > img {
             width: 2rem;
-  
+
             @include tablet {
               width: 1.5rem;
             }
-  
+
             @include mobile {
               width: 1.25rem;
             }
           }
-  
+
           > p {
             font-size: 1.125rem;
             font-weight: 500;
-  
+
             @include tablet {
               font-size: 1rem;
             }
-  
+
             @include mobile {
               font-size: 0.875rem;
             }
           }
         }
       }
-
     }
 
     &-right {
@@ -799,27 +820,25 @@ body {
       justify-content: center;
       align-items: center;
 
-      
-    
       img {
-        max-width: 100%;   // ensures no overflow
-        height: auto;      // keeps natural aspect ratio
+        max-width: 100%; // ensures no overflow
+        height: auto; // keeps natural aspect ratio
         object-fit: contain;
-    
+
         @include tablet {
-          max-width: 90%;  // shrink slightly on tablets
+          max-width: 90%; // shrink slightly on tablets
         }
-    
+
         @include mobile {
-          max-width: 80%;  // smaller on mobile
+          max-width: 80%; // smaller on mobile
         }
       }
     }
-    
   }
 
   .plan-container {
     text-align: center;
+    padding: 8rem 0;
     &-top {
       text-align: center;
       h2 {
@@ -832,6 +851,7 @@ body {
         font-size: 1.125rem;
         font-weight: 700;
         line-height: normal;
+        margin: 2.5rem 0;
       }
     }
     &-middle {
@@ -844,6 +864,7 @@ body {
       box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.05);
       width: auto;
       padding: 0.4rem;
+      margin-bottom: 4rem;
 
       .bil-monthly {
         padding: 0.8rem 2rem;
@@ -860,12 +881,24 @@ body {
     }
     &-bottom {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center; // center by default
       gap: 1.5rem;
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
+    
+      @include tablet {
+        justify-content: space-between; // spread them better on tablet
+        gap: 1rem;
+      }
+    
+      @include mobile {
+        flex-direction: column; // stack on small screens
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
 
       .plan-card {
         background: white;
@@ -923,6 +956,9 @@ body {
           padding: 0.3rem 0.6rem;
           display: inline-flex;
           color: #fff;
+          margin-bottom: 1rem;
+
+          
         }
 
         .cta-button {
@@ -983,6 +1019,10 @@ body {
           background: $primary-color;
           color: #fff;
           border-radius: 1.25rem;
+
+          &:hover{
+            background: lighten($primary-color, 10%);
+          }
         }
       }
 
